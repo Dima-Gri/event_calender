@@ -1,0 +1,87 @@
+{% extends 'calender/base.html' %}
+
+{% block content %}
+    <div class="background-1">
+        <div class="head_page">
+            <div class="head_toolbar">
+                {% if request.user.is_authenticated %}
+                    <img src="../../static/calender/images/Desktop-1.png" alt="heyo" width="14%" height="70px"
+                         class="logo">
+                    <li class="last"> {{ user.username }} | <a href="{% url 'calender:logout' %}">Выйти</a></li>
+                {% else %}
+                    <img src="../../static/calender/images/Desktop-1.png" alt="heyo" width="245px" height="70px"
+                         class="logo">
+                    <li class="last"><a href="{% url 'calender:register' %}">Регистрация</a> | <a
+                            href="{% url 'calender:login' %}">Войти</a></li>
+                {% endif %}
+            </div>
+
+            <div class="profi_item">
+                {% if request.user.is_authenticated %}
+                    <div class="div_panel_1">
+                        <div class="div_btn_first">
+                            <a class="btn" href="{% url 'calender:event_new' %}"> Create new Event </a>
+                        </div>
+                        <div class="div_btn">
+                            <a class="btn" href="{% url 'calender:dashboard' %}"> Dashboard </a>
+                        </div>
+                        {% if flag %}
+                        <div class="div_btn">
+                            <a class="btn" href="{% url 'calender:add_worker_without_name' %}"> Add member </a>
+                        </div>
+                        {% else %}
+                        {% endif %}
+                        <div class="line">
+                        </div>
+                        {% if projects %}
+                            <div class="project_head">
+                                My projects
+                            </div>
+                            {% for f in projects %}
+                                <div class="project_head color_card">
+                                    <div>
+                                        {{ f.project_name }}
+
+                                    </div>
+                                    <div>
+                                        {% if f.manager == request.user.username %}
+                                            <a class="btn" href="{{ f.get_url_add }}"> +add </a>
+                                        {% else %}
+                                        {% endif %}
+                                        <a class="btn" href="{{ f.get_url }}"> dashboard </a>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+                {% else %}
+                {% endif %}
+                <div class="div_panel_3">
+
+                </div>
+                <div class="div_panel_2">
+                    {% if request.user.is_authenticated %}
+
+                        <div class="base_panel">
+                            <div class="clearfix">
+                                <a class="btn btn-info left" href="{% url 'calender:calendar' %}?{{ prev_month }}">
+                                    Previous Month </a>
+                                <a class="btn btn-info right" href="{% url 'calender:calendar' %}?{{ next_month }}">
+                                    Next Month </a>
+                            </div>
+                            {{ calendar }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

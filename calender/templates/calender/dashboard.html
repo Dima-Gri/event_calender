@@ -1,0 +1,280 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link type="text/css" href="{% static 'calender/css/boom.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'calender/css/dashboard.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'calender/css/dash_card.css' %}" rel="stylesheet"/>
+
+    <link id="u-theme-google-font" rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
+<body class="u-body u-overlap u-overlap-transparent u-xl-mode" data-lang="ru">
+<header class="u-clearfix u-header u-header" id="sec-a82c">
+
+</header>
+<section class="u-align-center u-clearfix u-image u-section-1" id="carousel_a714" data-image-width="1980"
+         data-image-height="1217">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+            <div class="u-repeater u-repeater-1">
+                <div class="u-bottom-left-radius-20 u-container-style u-list-item u-repeater-item u-shape-round u-top-right-radius-20 u-white u-list-item-1">
+                    <div class="u-container-layout u-similar-container u-container-layout-1">
+                        <div class="u-container-style u-group u-palette-1-base u-radius-10 u-shape-round u-group-1">
+                            <div class="u-container-layout u-container-layout-2">
+                                <h6 class="u-align-center u-text u-text-default u-text-1">Сделать</h6>
+                            </div>
+                        </div>
+                        {% for f in todo %}
+                            {% if f.end_time < cur %}
+                                <div class="color_card_red">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% else %}
+                                <div class="color_card_def">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+
+                                </div>
+                            {% endif %}
+
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="u-bottom-left-radius-20 u-container-style u-list-item u-repeater-item u-shape-round u-top-right-radius-20 u-video-cover u-white u-list-item-2">
+                    <div class="u-container-layout u-similar-container u-container-layout-3">
+                        <div class="u-container-style u-group u-palette-1-base u-radius-10 u-shape-round u-group-2">
+                            <div class="u-container-layout u-container-layout-4">
+                                <h6 class="u-align-center u-text u-text-default u-text-2">В процессе</h6>
+                            </div>
+                        </div>
+                        {% for f in prog %}
+                            {% if f.end_time < cur %}
+                                <div class="color_card_red">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% else %}
+                                <div class="color_card_def">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first " href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="u-bottom-left-radius-20 u-container-style u-list-item u-repeater-item u-shape-round u-top-right-radius-20 u-video-cover u-white u-list-item-3">
+                    <div class="u-container-layout u-similar-container u-container-layout-5">
+                        <div class="u-container-style u-group u-palette-1-base u-radius-10 u-shape-round u-group-3">
+                            <div class="u-container-layout u-container-layout-6">
+                                <h6 class="u-align-center u-text u-text-default u-text-3">На проверке</h6>
+                            </div>
+                        </div>
+                        {% for f in review %}
+                            {% if f.end_time < cur %}
+                                <div class="color_card_red">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% else %}
+                                <div class="color_card_def">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="u-bottom-left-radius-20 u-container-style u-list-item u-repeater-item u-shape-round u-top-right-radius-20 u-video-cover u-white u-list-item-4">
+                    <div class="u-container-layout u-similar-container u-container-layout-7">
+                        <div class="u-container-style u-group u-palette-1-base u-radius-10 u-shape-round u-group-4">
+                            <div class="u-container-layout u-container-layout-8">
+                                <h6 class="u-align-center u-text u-text-default u-text-4">Выполнено</h6>
+                            </div>
+                        </div>
+                        {% for f in done %}
+                            {% if f.end_time < cur %}
+                                <div class="color_card_red">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% else %}
+                                <div class="color_card_green">
+                                    {% if flag %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+
+                                    {% else %}
+                                        <a class="btn btn-info left panel-first" href="{{ f.get_url_default }}">
+                                            <div class="event-aligning">
+                                                {{ f.project_name }}
+                                            </div>
+                                            <div>
+                                                {{ f.title }}
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="retur">
+    <a class="btn btn-info left" href="{% url 'calender:calendar' %}"> Calendar </a>
+</div>
+
+</body>
+</html>
