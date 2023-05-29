@@ -1,0 +1,54 @@
+.color_card_red {
+    margin-top: 10px;
+    background-color: #c1666b;
+    border-radius: 20px;
+    color: white; /* Цвет ссылки при наведении */
+    padding: 10px;
+}
+
+.color_card_def {
+    margin-top: 10px;
+    background-color: #8db8e0;
+    border-radius: 20px;
+    color: white; /* Цвет ссылки при наведении */
+    padding: 10px;
+
+}
+
+.color_card_green {
+    margin-top: 10px;
+    background-color: #34ecbb;
+    border-radius: 20px;
+    color: white; /* Цвет ссылки при наведении */
+    padding: 10px;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+a:visited {
+    color: white; /* Цвет посещённой ссылки */
+}
+
+a:hover {
+    color: black; /* Цвет ссылки при наведении */
+    background-color: #9e9e9e;
+    border-radius: 12px;
+}
+
+.event-aligning {
+    text-align: center;
+}
+
+
+.retur a:visited {
+    color: black; /* Цвет посещённой ссылки */
+}
+
+.retur a:hover {
+
+}
